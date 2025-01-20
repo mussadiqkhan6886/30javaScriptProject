@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: salmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    font-size: 2.3rem;
+    font-family: Roboto;
+    box-shadow: inset 1px 1px 10px white,
+    inset -1px -1px 10px rgb(161, 0, 0),
+    1px 1px 10px rgba(255, 0, 0, 0.616);
+    padding: 1rem;
+}
