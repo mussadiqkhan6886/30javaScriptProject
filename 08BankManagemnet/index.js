@@ -1,3 +1,6 @@
+import { database } from "./data.js";
+console.log(database);
+
 // Function to select DOM elements
 function selectItem(selector) {
     return document.querySelector(selector);
@@ -8,16 +11,11 @@ const buttonLogIn = selectItem('#buttonLogin');
 const buttonSignIn = selectItem('#buttonCreate');
 const inputName = selectItem('#inputName');
 const accountNumber = selectItem('#inputAccNumber'); // Corrected selector
+const code = selectItem('#code');
 const signUp = selectItem('#clickSignUp');
 const signUpContainer = selectItem('.signup');
 const logInContainer = selectItem('.login');
 const clickLogIn = selectItem('#clickLogIn'); // Use selectItem for consistency
-
-// Database for user authentication
-const database = [
-    { name: "mussadiq khan", accNumber: 678910 },
-    { name: "azzaz", accNumber: 123456 }
-];
 
 // Prevent form submission
 document.querySelector('form').onsubmit = (e) => {
@@ -28,7 +26,8 @@ document.querySelector('form').onsubmit = (e) => {
 const login = () => {
     const isValidUser = database.some((data) =>
         inputName.value.trim().toLowerCase() === data.name.toLowerCase() &&
-        Number(accountNumber.value) === data.accNumber
+        Number(accountNumber.value) === data.accNumber &&
+        Number(code.value) === data.code
     );
     if (isValidUser) {
         selectItem('#error').style.display = 'none';
