@@ -79,11 +79,19 @@ clickLogIn.addEventListener('click', () => {
 // signin
 selectItem('#formSignIn').addEventListener('submit', (e) => {
     e.preventDefault();
-})
+    transferData();
+});
+
+let flagFullName = false;
+let flagEmail = false;
+let flagAddress = false;
+let flagConfirmPassword = false;
+let flagAccountNumber = false;
 
 function displayInvalid(message, element, messageElement){
     messageElement.innerHTML = message;
     element.style.border = `2px solid red`;
+    messageElement.style.color = 'red';
 }
 function showCorrectMessage(message, element, messageElement){
     messageElement.innerHTML = message;
@@ -91,15 +99,18 @@ function showCorrectMessage(message, element, messageElement){
     messageElement.style.color = 'green';
 }
 function validateFullName(){
+    flagFullName = false;
     const fullNameMessage = selectItem('.fullNameMessage');
     const fullName = selectItem("#fullName");
     if(fullName.value.length < 3){
         displayInvalid('Please enter a valid full name', fullName, fullNameMessage);
     }else{
         showCorrectMessage('Correct', fullName, fullNameMessage);
+        flagFullName = true;
     }
 }
 function validateEmail() {
+    flagEmail = false;
     const emailMessage = selectItem('.emailMessage');
     const email = selectItem('#email');
     let emailRegex = /^[A-Za-z0-9._-]+@[A-Za-z]+\.[a-z]{2,4}$/;
@@ -107,46 +118,60 @@ function validateEmail() {
         displayInvalid('Please enter a valid Email', email, emailMessage);
     } else {
         showCorrectMessage('Correct', email, emailMessage);
+        flagEmail = true;
     }
 }
 
 
 function validatePassword() {
+    flagConfirmPassword = false;
     const passwordMessage = selectItem('.passwordMessage');
     const password = selectItem('#password');
     if (password.value.length < 4) {
         displayInvalid('Please enter a valid Password of 4 digits', password, passwordMessage);
     } else {
         showCorrectMessage('Correct', password, passwordMessage);
+        flagConfirmPassword = true;
     }
 }
 
 function validateAddress() {
+    flagAddress = false;
     const addressMessage = selectItem('.addressMessage');
     const address = selectItem('#address');
     if (address.value.length < 4) {
         displayInvalid('Please enter a valid Address', address,addressMessage);
     } else {
         showCorrectMessage('Correct', address, addressMessage);
+        flagAddress = true;
     }
 }
 
 function validateAccountNumber() {
+    flagAccountNumber = false;
     const accountNumberMessage = selectItem('.accountNumberMessage');
     const accountNumberSignIn = selectItem('#accountNumber');
     if (accountNumberSignIn.value.length < 6) {
         displayInvalid('Please enter a valid Account Number', accountNumberSignIn, accountNumberMessage);
     } else {
         showCorrectMessage('Correct', accountNumberSignIn, accountNumberMessage);
+        flagAccountNumber = true;
     }
 }
 
 buttonSignIn.addEventListener('click', () => {   
-    
     validateFullName();
     validateEmail();
     validatePassword();
     validateAddress();
     validateAccountNumber();
-})
+});
+
+function transferData(){
+    if(flagFullName && flagEmail && flagConfirmPassword && flagAddress && flagAccountNumber){
+        console.log("confirm");
+    }else{
+        console.log("error");
+    }
+}
 
