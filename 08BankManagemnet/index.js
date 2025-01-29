@@ -1,5 +1,5 @@
 import { database } from "./data.js";
-
+console.log(database)
 // Function to select DOM elements
 function selectItem(selector) {
     return document.querySelector(selector);
@@ -54,8 +54,15 @@ const newPage = () => {
             <button id="logout">Log Out</button>
         </div>
     `;
-    
-}
+
+    // Add event listener for logout after rendering the button
+    document.getElementById("logout").addEventListener("click", () => {
+        window.location.reload(); // Reload to reset login state
+    });
+};
+
+
+
 
 signUp.addEventListener('click', () => {
     logInContainer.classList.add("hidden");
@@ -87,6 +94,11 @@ const accountNumberSignIn = selectItem('#accountNumber');
 selectItem('#formSignIn').addEventListener('submit', (e) => {
     e.preventDefault();
     transferData();
+    // document.body.innerHTML = `
+    //     <div>
+    //         <h1>Account Created ${fullName.value}</h1>
+    //     </div>
+    // `
 });
 
 let flagFullName = false;
@@ -182,8 +194,31 @@ buttonSignIn.addEventListener('click', () => {
 function transferData(){
     if(flagFullName && flagEmail && flagConfirmPassword && flagAddress && flagAccountNumber){
         console.log("confirm");
-    }else{
+        database.push({
+            name: fullName.value,
+            accNumber: Number(accountNumberSignIn.value),  // Convert to number
+            code: Number(password.value)  // Convert to number
+        });
+        console.log(database);
+        signUpContainer.classList.add("hidden");
+        setTimeout(() => {
+            signUpContainer.style.display = 'none';
+            logInContainer.style.display = 'flex';
+            logInContainer.classList.remove("hidden");
+        }, 300);
+        storeData();
+    } else {
         console.log("error");
     }
 }
+
+function storeData(){
+    localStorage.setItem("users", JSON.stringify(database));
+}
+
+function loadData(){
+    let savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    console.log(savedUsers);
+}
+loadData();
 
