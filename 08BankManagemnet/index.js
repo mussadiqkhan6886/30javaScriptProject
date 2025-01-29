@@ -1,5 +1,4 @@
 import { database } from "./data.js";
-console.log(database);
 
 // Function to select DOM elements
 function selectItem(selector) {
@@ -18,7 +17,7 @@ const logInContainer = selectItem('.login');
 const clickLogIn = selectItem('#clickLogIn'); // Use selectItem for consistency
 
 // Prevent form submission
-document.querySelector('form').onsubmit = (e) => {
+document.querySelector('#formLogIn').onsubmit = (e) => {
     e.preventDefault();
 };
 
@@ -35,12 +34,6 @@ const login = () => {
             e.style.border = '1px solid rgba(128, 128, 128, 0.562)';
         });
         newPage();
-        // let link = document.createElement('a');
-        // link.href = 'main.html';
-        // link.style.textDecoration = 'none';
-        // buttonLogIn.innerHTML = '';
-        // buttonLogIn.appendChild(link);
-        // link.innerHTML = "Log In";
     } else {
         selectItem('#error').style.display = 'block';
         document.querySelectorAll('.input').forEach((e) => {
@@ -55,20 +48,105 @@ buttonLogIn.addEventListener('click', login);
 // Next Page
 const newPage = () => {
     selectItem('body').style.display = 'block';
-    selectItem('body').innerHTML = `<h1 id='newPageHeading' >Hello ${inputName.value}</h1>`;
+    selectItem('body').innerHTML = `
+        <div class="new-page">
+            <h1 id='newPageHeading'>Hello, ${inputName.value}!</h1>
+            <button id="logout">Log Out</button>
+        </div>
+    `;
     
 }
 
-
-// Toggle sign-up form
 signUp.addEventListener('click', () => {
-    signUpContainer.style.display = 'flex'; // Set to flex once
-    logInContainer.style.display = 'none';
+    logInContainer.classList.add("hidden");
+    setTimeout(() => {
+        logInContainer.style.display = 'none';
+        signUpContainer.style.display = 'flex';
+        signUpContainer.classList.remove("hidden");
+    }, 300);
 });
 
-// Toggle login form
 clickLogIn.addEventListener('click', () => {
-    signUpContainer.style.display = 'none';
-    logInContainer.style.display = 'flex'; // Set to flex once
+    signUpContainer.classList.add("hidden");
+    setTimeout(() => {
+        signUpContainer.style.display = 'none';
+        logInContainer.style.display = 'flex';
+        logInContainer.classList.remove("hidden");
+    }, 300);
 });
+
+
+// signin
+selectItem('#formSignIn').addEventListener('submit', (e) => {
+    e.preventDefault();
+})
+
+function displayInvalid(message, element, messageElement){
+    messageElement.innerHTML = message;
+    element.style.border = `2px solid red`;
+}
+function showCorrectMessage(message, element, messageElement){
+    messageElement.innerHTML = message;
+    element.style.border = `2px solid green`;
+    messageElement.style.color = 'green';
+}
+function validateFullName(){
+    const fullNameMessage = selectItem('.fullNameMessage');
+    const fullName = selectItem("#fullName");
+    if(fullName.value.length < 3){
+        displayInvalid('Please enter a valid full name', fullName, fullNameMessage);
+    }else{
+        showCorrectMessage('Correct', fullName, fullNameMessage);
+    }
+}
+function validateEmail() {
+    const emailMessage = selectItem('.emailMessage');
+    const email = selectItem('#email');
+    let emailRegex = /^[A-Za-z0-9._-]+@[A-Za-z]+\.[a-z]{2,4}$/;
+    if (!email.value.match(emailRegex)) {
+        displayInvalid('Please enter a valid Email', email, emailMessage);
+    } else {
+        showCorrectMessage('Correct', email, emailMessage);
+    }
+}
+
+
+function validatePassword() {
+    const passwordMessage = selectItem('.passwordMessage');
+    const password = selectItem('#password');
+    if (password.value.length < 4) {
+        displayInvalid('Please enter a valid Password of 4 digits', password, passwordMessage);
+    } else {
+        showCorrectMessage('Correct', password, passwordMessage);
+    }
+}
+
+function validateAddress() {
+    const addressMessage = selectItem('.addressMessage');
+    const address = selectItem('#address');
+    if (address.value.length < 4) {
+        displayInvalid('Please enter a valid Address', address,addressMessage);
+    } else {
+        showCorrectMessage('Correct', address, addressMessage);
+    }
+}
+
+function validateAccountNumber() {
+    const accountNumberMessage = selectItem('.accountNumberMessage');
+    const accountNumberSignIn = selectItem('#accountNumber');
+    if (accountNumberSignIn.value.length < 6) {
+        displayInvalid('Please enter a valid Account Number', accountNumberSignIn, accountNumberMessage);
+    } else {
+        showCorrectMessage('Correct', accountNumberSignIn, accountNumberMessage);
+    }
+}
+
+buttonSignIn.addEventListener('click', () => {   
+    
+    validateFullName();
+    validateEmail();
+    validatePassword();
+    validateAddress();
+    validateAccountNumber();
+})
 

@@ -12,7 +12,7 @@
             <h1>Login</h1>
         </div>
         <div class="main">
-            <form action="#">
+            <form id="formLogIn">
                 <div class="details">
                     <div class="name">
                         <input class="input" type="text" placeholder="Enter Your Name" id="inputName" autocomplete="off">
@@ -40,32 +40,34 @@
             <p>We will give you best service with good payment saving and security </p>
         </div>
         <div class="main">
-            <form action="#">
+            <form id="formSignIn">
                 <div class="details">
                     <div class="Firstname">
-                        <label for="firstname">First Name:</label>
-                        <input type="text" id="firstname" placeholder="Enter Your First Name" autocomplete="off">
-                    </div>
-                    <div class="lastname">
-                        <label for="lastname">Last Name:</label>
-                        <input type="text" id="lastname" placeholder="Enter Your Last Name" autocomplete="off">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" onkeyup="validateFullName()" class="inputSignIn" id="fullName" placeholder="Enter Your Full Name" autocomplete="off">
+                        <p class="fullNameMessage"></p>
                     </div>
                     <div class="email">
                         <label for="email">Email: </label>
-                        <input type="email" id="email" placeholder="Enter Your Email" autocomplete="off">
+                        <input type="email" onkeyup="validateEmail()" class="inputSignIn" id="email" placeholder="Enter Your Email" autocomplete="off">
+                        <p class="emailMessage"></p>
                     </div>
                     <div class="password">
                         <label for="password">Password: </label>
-                        <input type="password" id="password" placeholder="Enter Password">
+                        <input type="password" onkeyup="validatePassword()" class="inputSignIn" id="password" placeholder="Enter Password">
+                        <p class="passwordMessage"></p>
                     </div>
                     <div class="address">
                         <label for="address">Address: </label>
-                        <input type="text" id="address" placeholder="Enter Your Password">
+                        <input type="text" onkeyup="validateAddress()" class="inputSignIn" id="address" autocomplete="off" placeholder="Enter Your Address">
+                        <p class="addressMessage"></p>
                     </div>
                     <div class="accountNumberDiv">
                         <label for="accountNumber">Account Number: </label>
-                        <input type="text" id="accountNumber" placeholder="Enter Account Number">
+                        <input type="text" onkeyup="validateAccountNumber()" class="inputSignIn" id="accountNumber" placeholder="Enter Account Number" autocomplete="off">
+                        <p class="accountNumberMessage"></p>
                     </div>
+                    <p id="errorSignIn">Please Complete form</p>
                 </div>
                 <div class="button-div">
                     <button type="submit" id="buttonCreate">Create</button>

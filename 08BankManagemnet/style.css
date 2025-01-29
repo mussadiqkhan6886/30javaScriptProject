@@ -25,6 +25,11 @@ a{
     padding: 1rem;
     box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.603);
     display: flex;
+    transition: opacity 0.5s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 .signup{
     width: 90%;
@@ -48,15 +53,6 @@ a{
     margin: 1rem 0rem;
 }
 
-.details div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.details div label{
-    margin: 0.4rem;
-    text-wrap: nowrap;
-}
 .details div input{
     width: 100%;
     margin: 0.5rem 0rem;
@@ -98,8 +94,26 @@ button:hover{
     display: none;
 }
 
+#errorSignIn{
+    color: red;
+    text-align: center;
+    margin: 0.4rem;
+    display: none;
+}
+#passwordError{
+    margin: 0.2rem 0 0.6rem;
+    color: red;
+    display: none;
+}
+
 /* New Page */
 
 #newPageHeading{
     color: white;
 }
+
+.details div p{
+    color: red;
+    margin: 0.5rem 0;
+}
+
