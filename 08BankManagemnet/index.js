@@ -77,6 +77,13 @@ clickLogIn.addEventListener('click', () => {
 
 
 // signin
+
+const fullName = selectItem("#fullName");
+const email = selectItem('#email');
+const password = selectItem('#password');
+const address = selectItem('#address');
+const accountNumberSignIn = selectItem('#accountNumber');
+
 selectItem('#formSignIn').addEventListener('submit', (e) => {
     e.preventDefault();
     transferData();
@@ -98,10 +105,10 @@ function showCorrectMessage(message, element, messageElement){
     element.style.border = `2px solid green`;
     messageElement.style.color = 'green';
 }
+
 function validateFullName(){
     flagFullName = false;
     const fullNameMessage = selectItem('.fullNameMessage');
-    const fullName = selectItem("#fullName");
     if(fullName.value.length < 3){
         displayInvalid('Please enter a valid full name', fullName, fullNameMessage);
     }else{
@@ -109,10 +116,12 @@ function validateFullName(){
         flagFullName = true;
     }
 }
+fullName.addEventListener('keyup', validateFullName);
+
 function validateEmail() {
     flagEmail = false;
     const emailMessage = selectItem('.emailMessage');
-    const email = selectItem('#email');
+    
     let emailRegex = /^[A-Za-z0-9._-]+@[A-Za-z]+\.[a-z]{2,4}$/;
     if (!email.value.match(emailRegex)) {
         displayInvalid('Please enter a valid Email', email, emailMessage);
@@ -121,12 +130,12 @@ function validateEmail() {
         flagEmail = true;
     }
 }
-
+email.addEventListener('keyup', validateEmail);
 
 function validatePassword() {
     flagConfirmPassword = false;
     const passwordMessage = selectItem('.passwordMessage');
-    const password = selectItem('#password');
+    
     if (password.value.length < 4) {
         displayInvalid('Please enter a valid Password of 4 digits', password, passwordMessage);
     } else {
@@ -134,11 +143,12 @@ function validatePassword() {
         flagConfirmPassword = true;
     }
 }
+password.addEventListener('keyup', validatePassword);
 
 function validateAddress() {
     flagAddress = false;
     const addressMessage = selectItem('.addressMessage');
-    const address = selectItem('#address');
+    
     if (address.value.length < 4) {
         displayInvalid('Please enter a valid Address', address,addressMessage);
     } else {
@@ -146,11 +156,12 @@ function validateAddress() {
         flagAddress = true;
     }
 }
+address.addEventListener('keyup', validateAddress);
 
 function validateAccountNumber() {
     flagAccountNumber = false;
     const accountNumberMessage = selectItem('.accountNumberMessage');
-    const accountNumberSignIn = selectItem('#accountNumber');
+  
     if (accountNumberSignIn.value.length < 6) {
         displayInvalid('Please enter a valid Account Number', accountNumberSignIn, accountNumberMessage);
     } else {
@@ -158,6 +169,7 @@ function validateAccountNumber() {
         flagAccountNumber = true;
     }
 }
+accountNumberSignIn.addEventListener('keyup', validateAccountNumber);
 
 buttonSignIn.addEventListener('click', () => {   
     validateFullName();
