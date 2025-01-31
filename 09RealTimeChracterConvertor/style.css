@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    min-width: 400px;
+    padding: 1rem;
+    border: 3px solid orangered;
+    background-color: darkorange;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.container h1{
+    margin-bottom: 0.6rem;
+}
+.container textarea{
+    height: 80px;
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+    font-size: 1.1rem;
+}
+.container div{
+    display: flex;
+    justify-content: space-around;
+}
+.container div #total{
+    color: green;
+    font-size: 1.1rem;
+}
+.container div #remaining{
+    color: red;
+    font-size: 1.1rem;
+}
