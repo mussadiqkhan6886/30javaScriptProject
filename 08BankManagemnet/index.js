@@ -1,5 +1,13 @@
 import { database } from "./data.js";
 console.log(database)
+let savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+// Instead of reassigning `database`, update its contents
+if (savedUsers.length) {
+    database.length = 0;  // Clear the original array
+    database.push(...savedUsers);  // Add stored users
+}
+
 // Function to select DOM elements
 function selectItem(selector) {
     return document.querySelector(selector);
@@ -23,7 +31,8 @@ document.querySelector('#formLogIn').onsubmit = (e) => {
 
 // Login function
 const login = () => {
-    const isValidUser = database.some((data) =>
+    let users = JSON.parse(localStorage.getItem('users')) || database;
+    const isValidUser = users.some((data) =>
         inputName.value.trim().toLowerCase() === data.name.toLowerCase() &&
         Number(accountNumber.value) === data.accNumber &&
         Number(code.value) === data.code
@@ -51,7 +60,7 @@ const newPage = () => {
     selectItem('body').innerHTML = `
         <header>
             <nav class='first'>
-                <div> Home </div>
+                <div id='home' > Home </div>
                 <div> Deposit Money </div>
                 <div> Withdraw Money </div>
                 <div> Show Account </div>
@@ -67,6 +76,9 @@ const newPage = () => {
             <h2 id='bank'> Simple and Safe Banking </h2>
             <p>We will give you best service we can</p>
         </div>
+
+        
+        <script src="main.js"></script>
     `;
 
     // Add event listener for logout after rendering the button
@@ -108,11 +120,6 @@ const accountNumberSignIn = selectItem('#accountNumber');
 selectItem('#formSignIn').addEventListener('submit', (e) => {
     e.preventDefault();
     transferData();
-    // document.body.innerHTML = `
-    //     <div>
-    //         <h1>Account Created ${fullName.value}</h1>
-    //     </div>
-    // `
 });
 
 let flagFullName = false;
