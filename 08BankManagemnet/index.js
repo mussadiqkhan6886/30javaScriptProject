@@ -48,11 +48,24 @@ buttonLogIn.addEventListener('click', login);
 // Next Page
 const newPage = () => {
     selectItem('#styleSheet').href = `main.css`;
-    // selectItem(`#icon`).href = `<link id="icons" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">`
     selectItem('body').innerHTML = `
+        <header>
+            <nav class='first'>
+                <div> Home </div>
+                <div> Deposit Money </div>
+                <div> Withdraw Money </div>
+                <div> Show Account </div>
+                <div> About Us </div>
+            </nav>
+            <nav>
+                <div><button id="logout">Log Out<i class="fa-solid fa-right-from-bracket"></i></button></div>
+            </nav>
+        </header>
         <div class="new-page">
             <h1 id='newPageHeading'>Hello, ${inputName.value}!</h1>
-            <button id="logout">Log Out<i class="fa-solid fa-right-from-bracket"></i></button>
+            <h2> Welcome to our Bank!</h2>
+            <h2 id='bank'> Simple and Safe Banking </h2>
+            <p>We will give you best service we can</p>
         </div>
     `;
 
