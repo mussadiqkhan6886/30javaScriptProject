@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: aliceblue;
+}
+.container{
+    width: 300px;
+    height: 46px;
+    border-radius: 50px;
+    display: flex;
+    position: relative;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, .2),
+    -6px -6px 10px white;
+    transition: all 0.4s;
+}
+.container input{
+    margin-left: 46px;
+    width: 72%;
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+    border: none;
+    color: rgb(105, 105, 105);
+    font-size: 1rem;
+}
+.container i{
+    position: absolute;
+    cursor: pointer;
+}
+.fa-microphone{
+    right: 15px;
+    top: 15px;
+    color: darkred;
+    transition: all 0.5s;
+    transition-delay: 1s;
+}
+.fa-search{
+    left: 18px;
+    top: 15px;
+}
+.active.container{
+    width: 50px;
+}
+.active .fa-microphone{
+    display: none;
+    transition: all 0.6s;
+    transition-delay: 1s;
+}

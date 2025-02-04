@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+h1{
+    position: absolute;
+    top: 5%;
+    font-size: 4rem;
+}
+.image-container{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 0.4s;
+}
+.image-container span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+}
+  
+.image-container span img{
+    width: 100%;
+}
+
+.button-controls{
+    position: absolute;
+    bottom: 30%;
+}
+.button-controls button{
+    margin: 1rem;
+    border: 3px solid black;
+    width: 100px;
+    height: 40px;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    font-weight: 900;
+    transition: all 0.3s;
+}
+.button-controls button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
