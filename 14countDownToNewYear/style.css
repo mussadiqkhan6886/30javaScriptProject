@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.year-container{
+    text-align: center;
+    color: aqua;
+}
+.year-container h1{
+    font-size: 4rem;
+}
+.year-container h2{
+    font-size: 3rem;
+    color: rgb(172, 249, 252);
+}
+.timer-container{
+    background-color: darkslategrey;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: rgb(11, 184, 184);
+    font-size: 1.3rem;
+}
+.timer-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 360px;
+}
+.timer-div div{
+    text-align: center;
+}
+
+.timer-container .timer-div .number{
+    font-size: 4rem;
+}
