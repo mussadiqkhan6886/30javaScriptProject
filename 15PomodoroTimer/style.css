@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: aquamarine;
+    text-align: center;
+    overflow: hidden;
+}
+section{
+    margin-top: 3rem;
+}
+section h1{
+    font-size: 4rem;
+}
+section .timer{
+    font-size: 3rem;
+    font-family: monospace;
+    margin: 1rem;
+}
+section .controls{
+    margin: 3rem;
+}
+section .controls button{
+    width: 100px;
+    height: 40px;
+    border: 3px solid darkblue;
+    background-color: aqua;
+    color: darkred;
+    font-weight: 900;
+    cursor: pointer;
+}

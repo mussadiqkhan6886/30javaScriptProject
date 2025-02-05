@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: darkred;
+}
+.container{
+    background-color: darksalmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.container h1{
+    font-size: 4rem;
+}
+.container .drums-div{
+    margin: 1rem;
+}
+.container .drums-div .button{
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    background: url(./images/crash.jpg);
+    background-size: cover;
+    box-shadow: 0 1px 4px black;
+    margin: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    transition: all 0.4s;
+    outline: none;
+}
