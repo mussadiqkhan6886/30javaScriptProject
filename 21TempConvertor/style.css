@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, aqua, rgb(0, 128, 43));
+    min-height: 100dvh;
+}
+.container{
+    background-color: aquamarine;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(1, 107, 37);
+    width: 350px;
+}
+h1{
+    margin: 0  0 1rem 0;
+    text-align: center;
+}
+.main div{
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main > * {
+    margin-bottom: 10px;
+}
+.main label{
+    font-weight: 900;
+}
+input{
+    border: 2px solid rgb(4, 238, 168);
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+    width: 50%;
+    height: 30px;
+}
