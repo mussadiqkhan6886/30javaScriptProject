@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    min-height: 100vh;
+}
+.container{
+    text-align: center;
+    position: relative;
+}
+.counter{
+    font-size: 50px;
+}
+.back-loader{
+    background-color: rgb(255, 230, 121);
+    width: 200px;
+    height: 7px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.front-loader{
+    background-color: orangered;
+    width: 0px;
+    height: 7px;
+    border-radius: 7px;
+    position: absolute;
+    bottom: 0;
+}
