@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkred;
+}
+.container{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: bisque;
+    box-shadow: 8px 8px 15px black,
+    -8px -8px 15px red;
+    text-align: center;
+    width: 300px;
+}
+.timer{
+    font-size: 2rem;
+    margin: 1rem;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border: 3px dotted darkred;
+    margin-top: 1rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+button:hover{
+    border: 3px solid darkred;
+    letter-spacing: 2px;
+    background-color: burlywood;
+}
+.result-divv{
+    position: relative;
+}
+#animation{
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    width: 0px;
+    overflow: hidden;
+    animation: dot 1s infinite ease-in-out;
+    opacity: 0;
+    display: none;
+    top: -3px;
+    right: 65px;
+}
+@keyframes dot {
+    100%{
+        opacity: 1;
+        width: 25px;
+    }
+}
