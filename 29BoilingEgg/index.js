@@ -17,12 +17,14 @@ const boilEgg = () => {
         s -= 1;
     }
     timerDiv.innerHTML = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-    intervalId = setInterval(boilEgg, 10);
+    intervalId = setInterval(boilEgg, 1000);
     if(m == 0 && s == 0){
         clearInterval(intervalId);
         result.innerHTML = "Egg Boiled⏰";
         timerDiv.innerHTML = `00:00`;
         animation.style.display = 'none';
+        m = 8;
+        s = 0;
     }
     
 };

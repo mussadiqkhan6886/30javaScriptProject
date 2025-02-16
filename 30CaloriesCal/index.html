@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is an website of calories calculator">
+    <meta name="author" content="Mussadiq Khan">
     <title>Calories Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <section class="breakfast timing">
-
+            <fieldset id="breakfast">
+                <legend>Breakfast</legend>
+                <!-- <select name="breakfast" id="breakfast">
+                    <option value="">Choose</option>
+                    <option value="apple">Apple</option>
+                    
+                </select> -->
+            </fieldset>
         </section>
         <section class="lunch timing">
-
+            <fieldset id="lunch">
+                <legend>Lunch</legend>
+            </fieldset>
         </section>
         <section class="dinner timing">
-            
+            <fieldset id="dinner">
+                <legend>Dinner</legend>
+            </fieldset>
         </section>
+        <div aria-label="Calories calculated" class="result">
+            result
+        </div>
+        <button type="submit" aria-label="calculate calories" id="btn">Calculate</button>
     </div>
+    
     <script src="index.js"></script>
 </body>
 </html>
