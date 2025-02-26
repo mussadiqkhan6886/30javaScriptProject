@@ -27,10 +27,18 @@ imgs.forEach(img => {
     })
 })
 mark.addEventListener('click', () => { 
+    closeImage();
+})
+document.querySelector('.modal').addEventListener('click', (e) => {
+    if(e.target == document.querySelector('.modal')){
+        closeImage();
+    }
+})
+function closeImage(){
     document.querySelector('.modal').style.display = 'none';
     modal.src = '';
-    updateGallery();
-})
+    setTimeout(updateGallery, 2000);
+}
 
 function updateGallery() {
     container.style.transform = `perspective(1000px) rotateY(${x}deg)`;
