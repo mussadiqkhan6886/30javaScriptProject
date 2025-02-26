@@ -1,6 +1,9 @@
 let container = document.querySelector('.image-container');
 let prevButton = document.querySelector('#prev');
 let nextButton = document.querySelector('#next');
+let modal = document.querySelector('#modal-img');
+let imgs = document.querySelectorAll('.img');
+let mark = document.querySelector('.fa-xmark');
 let x = 0;
 let timer;
 
@@ -14,6 +17,18 @@ nextButton.addEventListener('click', () => {
   x -= 45;
   clearInterval(timer);
   updateGallery();  
+})
+
+imgs.forEach(img => {
+    img.addEventListener('click', () => {
+        document.querySelector('.modal').style.display = 'flex';
+        modal.src = img.src;
+        clearInterval(timer);
+    })
+})
+mark.addEventListener('click', () => { 
+    document.querySelector('.modal').style.display = 'none';
+    modal.src = '';
 })
 
 function updateGallery() {

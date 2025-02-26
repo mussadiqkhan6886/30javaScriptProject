@@ -13,11 +13,11 @@ body{
 }
 h1{
     position: absolute;
-    top: 5%;
+    top: 2%;
     font-size: 4rem;
 }
 .image-container{
-    width: 200px;
+    width: 20%;
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
@@ -33,11 +33,12 @@ h1{
   
 .image-container span img{
     width: 100%;
+    cursor: pointer;
 }
 
 .button-controls{
     position: absolute;
-    bottom: 30%;
+    bottom: 10%;
 }
 .button-controls button{
     margin: 1rem;
@@ -52,5 +53,96 @@ h1{
 .button-controls button:hover{
     background-color: black;
     color: white;
+    cursor: pointer;
+}
+@media screen and (min-width: 1000px) {
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(450px);
+    }
+}
+@media screen and (max-width:1000px){
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(370px);
+    }
+}
+
+@media screen and (max-width:800px){
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(320px);
+    }
+    .button-controls{
+        bottom: 30%;
+    }
+}
+@media screen and (max-width:720px){
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(300px);
+    }
+}
+@media screen and (max-width:640px){
+    .image-container{
+        width: 130px;
+    }
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(200px);
+    }
+}
+@media screen and (max-width:500px){
+    h1{
+        font-size: 3rem;
+        top: 15%;
+    }
+}
+@media screen and (max-width:460px){
+    .image-container{
+        width: 100px;
+    }
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(180px);
+    }
+}
+@media screen and (max-width:400px){
+    h1{
+        font-size: 2.5rem;
+        top: 10%;
+    }
+    .image-container{
+        width: 80px;
+    }
+    .image-container span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(140px);
+    }
+    .button-controls{
+        bottom: 40%;
+    }
+    .button-controls button{
+        transform: scale(0.8);
+    }
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-img {
+    width: 80%;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+.fa-xmark{
+    color: white;
+    font-size: 3rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
 }
