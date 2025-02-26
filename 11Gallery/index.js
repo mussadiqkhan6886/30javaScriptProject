@@ -29,6 +29,7 @@ imgs.forEach(img => {
 mark.addEventListener('click', () => { 
     document.querySelector('.modal').style.display = 'none';
     modal.src = '';
+    updateGallery();
 })
 
 function updateGallery() {
