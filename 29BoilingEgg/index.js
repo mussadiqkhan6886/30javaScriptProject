@@ -6,6 +6,7 @@ let intervalId;
 let m = 8;
 let s =  0;
 const boilEgg = () => {
+    document.querySelector('#img').src = 'https://static.vecteezy.com/system/resources/previews/009/384/648/non_2x/eggs-clipart-design-illustration-free-png.png';
     clearInterval(intervalId);
     result.innerHTML = `Egg boiling`;
 
@@ -17,12 +18,13 @@ const boilEgg = () => {
         s -= 1;
     }
     timerDiv.innerHTML = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-    intervalId = setInterval(boilEgg, 1000);
+    intervalId = setInterval(boilEgg, 10);
     if(m == 0 && s == 0){
         clearInterval(intervalId);
         result.innerHTML = "Egg Boiled⏰";
         timerDiv.innerHTML = `00:00`;
         animation.style.display = 'none';
+        document.querySelector('#img').src = 'https://static.vecteezy.com/system/resources/previews/009/379/808/non_2x/boiled-egg-clipart-design-illustration-free-png.png';
         m = 8;
         s = 0;
     }
