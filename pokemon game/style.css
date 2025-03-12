@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: rgb(177, 7, 177);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    background-color:darkblue;
+    padding: 1em;
+    color: rgb(240, 40, 240);
+}
+#main{
+    padding: 1em 0;
+}
